@@ -1,9 +1,9 @@
 
 package frc.robot;
 
-public class RobotContainer {
+public class RobotContainer_ArcadeNeo {
 
-  public RobotContainer() {
+  public RobotContainer_ArcadeNeo() {
     configureBindings();
   }
 
