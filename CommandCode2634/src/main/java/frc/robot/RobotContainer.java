@@ -1,18 +1,18 @@
 
 package frc.robot;
 
-import frc.robot.Constants;
 import frc.robot.commands.com_arcadeDrive;
 import frc.robot.subsystems.arcadeDriveTrain;
 import frc.robot.subsystems.sub_arcadeDrive;
 
-public class RobotContainer_ArcadeNeo {
+public class RobotContainer {
   final Constants cont = new Constants();
-  final arcadeDriveTrain aTrain = new arcadeDriveTrain(cont.leftFrontMax, cont.rightFrontMax, cont.leftBackMax, cont.rightBackMax);
+  final arcadeDriveTrain arcadeDriveTrain_Neo = new arcadeDriveTrain(cont.leftFrontMax, cont.rightFrontMax, cont.leftBackMax, cont.rightBackMax);
+  final arcadeDriveTrain arcadeDriveTrain_Talon = new arcadeDriveTrain(cont.leftFrontFX, cont.rightFrontFX, cont.leftBackFX, cont.rightBackFX);
   private final sub_arcadeDrive m_robotArcadeDrive = new sub_arcadeDrive();
   private final com_arcadeDrive arcadeDrivingCom = new com_arcadeDrive(m_robotArcadeDrive, cont.m_Xstick);
 
-  public RobotContainer_ArcadeNeo() {
+  public RobotContainer() {
     configureBindings();
   }
 
