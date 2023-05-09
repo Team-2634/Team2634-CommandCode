@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.sub_arcadeDrive;
 
 public class com_arcadeDrive extends CommandBase {
-  private final XboxController m_Xstick;
+  private final XboxController xBox0;
   private final sub_arcadeDrive m_robotDrive;
   
   public com_arcadeDrive(sub_arcadeDrive robotDrive, XboxController Xstick) {
-    m_Xstick = Xstick;
+    xBox0 = Xstick;
     m_robotDrive = robotDrive;
     addRequirements(m_robotDrive);
   }
@@ -21,7 +21,7 @@ public class com_arcadeDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_robotDrive.arcadeDrive(m_Xstick.getRawAxis(4) *0.8, m_Xstick.getRawAxis(1) * 0.8);
+    m_robotDrive.arcadeDrive(xBox0.getRawAxis(4) *0.8, xBox0.getRawAxis(1) * 0.8);
   }
 
   // Called once the command ends or is interrupted.
