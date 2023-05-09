@@ -9,7 +9,7 @@ public class RobotContainer {
   private final arcadeDriveTrain arcadeDriveTrain_Neo = new arcadeDriveTrain(cont.leftFrontMax, cont.rightFrontMax, cont.leftBackMax, cont.rightBackMax);
   //private final arcadeDriveTrain arcadeDriveTrain_Talon = new arcadeDriveTrain(cont.leftFrontFX, cont.rightFrontFX, cont.leftBackFX, cont.rightBackFX);
   private final sub_arcadeDrive m_robotArcadeDrive = new sub_arcadeDrive();
-  private final com_arcadeDrive arcadeDrivingCom = new com_arcadeDrive(m_robotArcadeDrive, cont.m_Xstick);
+  private final com_arcadeDrive arcadeDrivingCom = new com_arcadeDrive(m_robotArcadeDrive, cont.xBox0);
 
   public RobotContainer() {
     configureBindings();
