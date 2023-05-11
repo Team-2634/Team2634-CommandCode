@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 public final class Constants {
     final XboxController xBox0 = new XboxController(0);
-    final XboxController xBox1 = new XboxController(0);
+    final XboxController xBox1 = new XboxController(1);
 
         public final CANSparkMax leftFrontMax = new CANSparkMax(4, MotorType.kBrushless);
         public final CANSparkMax rightFrontMax = new CANSparkMax(10, MotorType.kBrushless);
@@ -24,20 +24,12 @@ public final class Constants {
         public final WPI_TalonFX rightBackFX = new WPI_TalonFX(4);
 
     public static final class ModuleConstants {
-        public static final double kWheelDiameterMeters = Units.inchesToMeters(4);
-        public static final double kDriveMotorGearRatio = 1 / 5.8462;
-        public static final double kTurningMotorGearRatio = 1 / 18.0;
+        public static final double kWheelDiameterMeters =  Units.inchesToMeters(3.75);
+        public static final double kDriveMotorGearRatio = 1 / 8.14;
+        public static final double kTurningMotorGearRatio = 1 / (150.0 / 7.0);
         public static final double kDriveEncoderRot2Meter = kDriveMotorGearRatio * Math.PI * kWheelDiameterMeters;
         public static final double kTurningEncoderRot2Rad = kTurningMotorGearRatio * 2 * Math.PI;
         public static final double kPTurning = 0.5;
-
-        /*
-        public final double kWheelDiameterMeters = Units.inchesToMeters(3.75);
-        public final double kDriveMotorGearRatio = 1 / 8.14;
-        public final double kTurningMotorGearRatio = 1.0 / (150.0 / 7.0); // motor rotations to wheel rotations conversion factor
-        public final double kDriveEncoderRot2Meter = kDriveMotorGearRatio * Math.PI * kWheelDiameterMeters;
-        public final double kTurningEncoderRot2Rad = kTurningMotorGearRatio * 2 * Math.PI;
-        */
         public static final double talonEncoder_TicksPerRev = 2048;
         public static final double talon_TurningEncoderTicksToMetresPerSec = kDriveEncoderRot2Meter / talonEncoder_TicksPerRev;
         public static final double talon_TurningEncoderTicksToRad = kTurningEncoderRot2Rad / talonEncoder_TicksPerRev;
@@ -46,9 +38,9 @@ public final class Constants {
 
     public static final class DriveConstants {
 
-        public static final double kTrackWidth = Units.inchesToMeters(21);
+        public static final double kTrackWidth = Units.inchesToMeters(24.0);
         // Distance between right and left wheels
-        public static final double kWheelBase = Units.inchesToMeters(25.5);
+        public static final double kWheelBase = Units.inchesToMeters(28.0);
         // Distance between front and back wheels
         public static final SwerveDriveKinematics kDriveKinematics = new SwerveDriveKinematics(
             new Translation2d(kWheelBase / 2, -kTrackWidth / 2),
@@ -102,8 +94,6 @@ public final class Constants {
         public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 3;
     }
 
-     /*
-
     public static final class AutoConstants {
         public static final double kMaxSpeedMetersPerSecond = DriveConstants.kPhysicalMaxSpeedMetersPerSecond / 4;
         public static final double kMaxAngularSpeedRadiansPerSecond = //
@@ -114,13 +104,11 @@ public final class Constants {
         public static final double kPYController = 1.5;
         public static final double kPThetaController = 3;
 
-        public static final TrapezoidProfile.Constraints kThetaControllerConstraints = //
+        public static final TrapezoidProfile.Constraints kThetaControllerConstraints = 
                 new TrapezoidProfile.Constraints(
                         kMaxAngularSpeedRadiansPerSecond,
                         kMaxAngularAccelerationRadiansPerSecondSquared);
     }
-
-    */
 
     public static final class OIConstants {
         public static final int kDriverControllerPort = 0;
@@ -131,8 +119,6 @@ public final class Constants {
         public static final int kDriverFieldOrientedButtonIdx = 1;
 
         public static final double kDeadband = 0.05;
-    }
- 
-   
+    } 
 
 }
