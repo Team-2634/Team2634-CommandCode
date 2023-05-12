@@ -29,7 +29,7 @@ public final class Constants {
         public static final double kTurningMotorGearRatio = 1 / (150.0 / 7.0);
         public static final double kDriveEncoderRot2Meter = kDriveMotorGearRatio * Math.PI * kWheelDiameterMeters;
         public static final double kTurningEncoderRot2Rad = kTurningMotorGearRatio * 2 * Math.PI;
-        public static final double kPTurning = 0.5;
+        public static final double kPTurning = 0.3;
         public static final double talonEncoder_TicksPerRev = 2048;
         public static final double talon_TurningEncoderTicksToMetresPerSec = kDriveEncoderRot2Meter / talonEncoder_TicksPerRev;
         public static final double talon_TurningEncoderTicksToRad = kTurningEncoderRot2Rad / talonEncoder_TicksPerRev;
