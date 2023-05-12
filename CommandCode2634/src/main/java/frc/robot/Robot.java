@@ -32,16 +32,6 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("absTL", (absTurningEncoderTL.getAbsolutePosition() * (Math.PI/180)));
     double value =  (absTurningEncoderTL.getAbsolutePosition() * (Math.PI/180)) - DriveConstants.kFrontLeftDriveAbsoluteEncoderOffsetRad;
     SmartDashboard.putNumber("absTLDC", value);
-
-
-    /*
-    SmartDashboard.putNumber("absTR", (absTurningEncoderTR.getAbsolutePosition() * (Math.PI/180)));
-    SmartDashboard.putNumber("absTRDC", (absTurningEncoderTR.getAbsolutePosition() - DriveConstants.kFrontRightDriveAbsoluteEncoderOffsetRad) * (Math.PI/180));
-    SmartDashboard.putNumber("absBL", (absTurningEncoderBL.getAbsolutePosition() * (Math.PI/180)));
-    SmartDashboard.putNumber("absBLDC", (absTurningEncoderBL.getAbsolutePosition() - DriveConstants.kBackLeftDriveAbsoluteEncoderOffsetRad) * (Math.PI/180));
-    SmartDashboard.putNumber("absBR", (absTurningEncoderBR.getAbsolutePosition() * (Math.PI/180)));
-    SmartDashboard.putNumber("absBRDC", (absTurningEncoderBR.getAbsolutePosition() - DriveConstants.kBackRightDriveAbsoluteEncoderOffsetRad) * (Math.PI/180));
-   */
   }
 
   @Override

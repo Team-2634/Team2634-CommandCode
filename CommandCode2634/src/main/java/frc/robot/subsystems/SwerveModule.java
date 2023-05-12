@@ -6,7 +6,6 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
-import edu.wpi.first.wpilibj.RobotController;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.ModuleConstants;
 
@@ -69,7 +68,7 @@ public class SwerveModule {
     }
 
     public double getAbsoluteEncoderRad() {
-        return (absTurningEncoder.getAbsolutePosition() - absoluteEncoderOffsetRad) * (Math.PI/180);
+        return (absTurningEncoder.getAbsolutePosition() * (Math.PI/180)) - absoluteEncoderOffsetRad;
         /*
         double angle = absTurningEncoder.getBusVoltage() / RobotController.getVoltage5V();
         angle *= 2.0 * Math.PI;
