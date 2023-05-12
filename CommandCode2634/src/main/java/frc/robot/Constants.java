@@ -33,9 +33,8 @@ public final class Constants {
         public static final double talonEncoder_TicksPerRev = 2048;
         public static final double talon_TurningEncoderTicksToMetresPerSec = kDriveEncoderRot2Meter / talonEncoder_TicksPerRev;
         public static final double talon_TurningEncoderTicksToRad = kTurningEncoderRot2Rad / talonEncoder_TicksPerRev;
-        public static final double absCanEncoder_PPR = 1;
+        public static final double absCanEncoder_PPR = 4096;
         public static final double absCanEncoder_TurningEncoderTicksToRad = kTurningEncoderRot2Rad / absCanEncoder_PPR;
-        
     }
 
     public static final class DriveConstants {
@@ -81,12 +80,12 @@ public final class Constants {
         public static final boolean kFrontRightDriveAbsoluteEncoderReversed = false;
         public static final boolean kBackRightDriveAbsoluteEncoderReversed = false;
 
-        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = 197.19*absCanEncoder_TurningEncoderTicksToRad;
-        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = 285.205*absCanEncoder_TurningEncoderTicksToRad;
-        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = 31.8*absCanEncoder_TurningEncoderTicksToRad;
-        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = 50.4*absCanEncoder_TurningEncoderTicksToRad;
+        public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(197.19);
+        public static final double kBackLeftDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(285.205);
+        public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(31.8);
+        public static final double kBackRightDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(50.4);
 
-        public static final double kPhysicalMaxSpeedMetersPerSecond = 5;
+        public static final double kPhysicalMaxSpeedMetersPerSecond = 4.115;
         public static final double kPhysicalMaxAngularSpeedRadiansPerSecond = 2 * 2 * Math.PI;
 
         public static final double kTeleDriveMaxSpeedMetersPerSecond = kPhysicalMaxSpeedMetersPerSecond / 4;
