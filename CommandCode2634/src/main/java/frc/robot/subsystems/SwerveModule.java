@@ -84,8 +84,8 @@ public class SwerveModule {
         return new SwerveModuleState(getDriveVelocity(), new Rotation2d(getTurningPosition()));
     }
 
-    public SwerveModulePosition[] getPos() {
-        return new SwerveModulePosition[(int)getDriveVelocity()];
+    public SwerveModulePosition getPos() {
+        return new SwerveModulePosition(getDriveVelocity(), new Rotation2d(getTurningPosition()));
     }
 
     public void setDesiredState(SwerveModuleState state) {

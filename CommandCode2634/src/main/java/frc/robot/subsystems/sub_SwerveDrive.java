@@ -58,9 +58,9 @@ public class sub_SwerveDrive extends SubsystemBase {
 
   private final AHRS navx = new AHRS(SPI.Port.kMXP);
 
-  SwerveModulePosition[] swerveArray = {frontLeft.getState(), frontRight, backLeft, backRight};
+  SwerveModulePosition[] swerveArray = {frontLeft.getPos(), frontRight.getPos(), backLeft.getPos(), backRight.getPos()};
 
-  private final SwerveDriveOdometry odometer = new SwerveDriveOdometry(DriveConstants.kDriveKinematics, new Rotation2d(0), swerveArray.getPos());
+  private final SwerveDriveOdometry odometer = new SwerveDriveOdometry(DriveConstants.kDriveKinematics, new Rotation2d(0), swerveArray);
 
   public sub_SwerveDrive() {
     new Thread(() -> {
@@ -89,13 +89,13 @@ public class sub_SwerveDrive extends SubsystemBase {
   }
 
   public void resetOdometry(Pose2d pose) {
-    odometer.resetPosition(getRotation2d(), frontLeft.getPos(), pose);
+    odometer.resetPosition(getRotation2d(), swerveArray, pose);
   }
 
   @Override
   public void periodic() {
     //odometer.update(getRotation2d(), frontLeft.getState(), frontRight.getState(), backLeft.getState(),backRight.getState());
-    odometer.update(getRotation2d(), frontLeft.getPos());
+    odometer.update(getRotation2d(), swerveArray);
     SmartDashboard.putNumber("Robot Heading", getHeading());
     SmartDashboard.putString("Robot Location", getPose().getTranslation().toString());
   }
