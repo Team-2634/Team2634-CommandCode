@@ -10,25 +10,27 @@ import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.AutoConstants;
 import frc.robot.Constants.DriveConstants;
-import frc.robot.Constants.OIConstants;
 import frc.robot.commands.cmd_SwerveDriveJoySticks;
 import frc.robot.subsystems.sub_SwerveDrive;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 public class SwerveContainer {
+    final Constants cont = new Constants();
     private final sub_SwerveDrive swerveSubsystem = new sub_SwerveDrive();
-    private final Joystick driverJoytick = new Joystick(OIConstants.kDriverControllerPort);
+    private final cmd_SwerveDriveJoySticks SwervDriveCommand = new cmd_SwerveDriveJoySticks(swerveSubsystem, cont.xBox0.getRawAxis(1), cont.xBox0.getRawAxis(0), cont.xBox0.getRawAxis(4), cont.xBox0.getAButton());
 
     public SwerveContainer() {
-        swerveSubsystem.setDefaultCommand(new cmd_SwerveDriveJoySticks(
+        swerveSubsystem.setDefaultCommand();
+                new cmd_SwerveDriveJoySticks(
         swerveSubsystem,
-        () -> -driverJoytick.getRawAxis(OIConstants.kDriverYAxis),
+        () -> -driverJoytick.getRawAxis(cont.xBox0.getRawAxis(1)),
         () -> driverJoytick.getRawAxis(OIConstants.kDriverXAxis),
         () -> driverJoytick.getRawAxis(OIConstants.kDriverRotAxis),
         () -> !driverJoytick.getRawButton(OIConstants.kDriverFieldOrientedButtonIdx)));
