@@ -69,10 +69,13 @@ public class SwerveModule {
     }
 
     public double getAbsoluteEncoderRad() {
+        return (absTurningEncoder.getAbsolutePosition() - absoluteEncoderOffsetRad) * (Math.PI/180);
+        /*
         double angle = absTurningEncoder.getBusVoltage() / RobotController.getVoltage5V();
         angle *= 2.0 * Math.PI;
         angle -= absoluteEncoderOffsetRad;
         return angle * (absoluteEncoderReversed ? -1.0 : 1.0);
+         */
     }
 
     public void resetEncoders() {
