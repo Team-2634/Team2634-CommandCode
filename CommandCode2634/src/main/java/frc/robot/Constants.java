@@ -111,6 +111,7 @@ public final class Constants {
                         kMaxAngularAccelerationRadiansPerSecondSquared);
     }
 
+    /* 
     public static final class OIConstants {
         public static final int kDriverControllerPort = 0;
 
@@ -120,6 +121,5 @@ public final class Constants {
         public static final int kDriverFieldOrientedButtonIdx = 1;
 
         public static final double kDeadband = 0.05;
-    } 
-
+    } */
 }
