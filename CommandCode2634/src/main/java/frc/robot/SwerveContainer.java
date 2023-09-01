@@ -27,14 +27,7 @@ public class SwerveContainer {
     private final cmd_SwerveDriveJoySticks SwervDriveCommand = new cmd_SwerveDriveJoySticks(swerveSubsystem, cont.xBox0.getRawAxis(1), cont.xBox0.getRawAxis(0), cont.xBox0.getRawAxis(4), cont.xBox0.getAButton());
 
     public SwerveContainer() {
-        swerveSubsystem.setDefaultCommand();
-                new cmd_SwerveDriveJoySticks(
-        swerveSubsystem,
-        () -> -driverJoytick.getRawAxis(cont.xBox0.getRawAxis(1)),
-        () -> driverJoytick.getRawAxis(OIConstants.kDriverXAxis),
-        () -> driverJoytick.getRawAxis(OIConstants.kDriverRotAxis),
-        () -> !driverJoytick.getRawButton(OIConstants.kDriverFieldOrientedButtonIdx)));
-    
+      swerveSubsystem.setDefaultCommand(SwervDriveCommand);    
       configureBindings();
     }
 
